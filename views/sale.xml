@@ -1,0 +1,25 @@
+<!-- Copyright 2017 ForgeFlow S.L.
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+    <record id="view_order_form" model="ir.ui.view">
+        <field name="name">sale.form - fixed_discount</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//group[@name='note_group']"
+                position="before"
+            >
+               <div class="float-end d-flex gap-1 mb-2 ms-1"
+                             name="so_button_below_order_lines">
+                            <button string="Discount"
+                                    name="action_open_discount_wizard"
+                                    type="object"
+                                    class="btn btn-secondary"
+                                    groups="product.group_discount_per_so_line"/>
+                        </div>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
